@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "vnRcNHhpTEaz1PUnUWzvCgCS+qQ=",
+			"path": "github.com/usechain/go-usedrpc",
+			"revision": "e16115e9fba2b8dd0e891ca49228ed9bd3c9fa5d",
+			"revisionTime": "2019-04-01T11:02:40Z"
+		}
+	],
+	"rootPath": "github.com/ningxin18/autominer/linux"
+}
