@@ -1,0 +1,25 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "LJNU7UbaA/OPHIgZpNPRrRXap74=",
+			"path": "github.com/mattn/go-runewidth",
+			"revision": "a9d6d1e4dc51df2130326793d49971f238839169",
+			"revisionTime": "2018-03-04T23:54:28Z"
+		},
+		{
+			"checksumSHA1": "Mr6HERVe331Mag0kz6Pp48TtuuY=",
+			"path": "github.com/peterh/liner",
+			"revision": "6f820f8f90ce9482ffbd40bb15f9ea9932f4942d",
+			"revisionTime": "2019-03-05T03:26:35Z"
+		},
+		{
+			"checksumSHA1": "mR9Z2pPKCWUEdLXMggj1CctNe9c=",
+			"path": "github.com/usechain/go-usedrpc",
+			"revision": "e16115e9fba2b8dd0e891ca49228ed9bd3c9fa5d",
+			"revisionTime": "2019-04-01T11:02:40Z"
+		}
+	],
+	"rootPath": "github.com/ningxin18/autominer/windows"
+}
