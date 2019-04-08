@@ -8,18 +8,21 @@ import (
 	"strconv"
 	"github.com/peterh/liner"
 	"strings"
-
 )
 
 func main() {
 	rpc := usedrpc.NewUseRPC("http://127.0.0.1:8848")
-	accounts, _ := rpc.UseAccounts()
+	time.Sleep(2 * time.Second)
+	accounts, err := rpc.UseAccounts()
+	if err != nil {
+		fmt.Println("UseAccounts", err)
+	}
 	var accountNum int
 	if len(accounts) == 0{
 		fmt.Println("No account!!!!!!")
 		return
 	} else {
-		fmt.Println("Please choose one account to mine, enter account number")
+		fmt.Println("Please choose one account to mine, enter account number>>>")
 		num, err := reader()
 		if err != nil {
 			return
@@ -29,7 +32,7 @@ func main() {
 			fmt.Println(err)
 		}
 
-		fmt.Println("Enter account password")
+		fmt.Println("Enter account password>>>")
 		passwd, err := reader()
 		if err != nil {
 			return
@@ -82,7 +85,7 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 		fmt.Println("SetString: error")
 	}
 
-	//query miner
+	//query isMiner
 	queryMiner, err := rpc.UseIsMiner(accounts[accountNum], "latest")
 	fmt.Println("queryMiner register result", queryMiner)
 	if queryMiner {
@@ -93,6 +96,29 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 			return
 		}
 		return
+	} else {
+		//if punished
+		isPunished, err := rpc.UseIsPunishedMiner(accounts[accountNum], "latest")
+		if err != nil {
+			fmt.Println("UseIsPunishedMiner", err)
+		}
+		if  isPunished {
+			// miner register
+			var unregisterMinnerTX usedrpc.T
+			unregisterMinnerTX = usedrpc.T {
+				From: accounts[accountNum],
+				To:   "0xfffffffffffffffffffffffffffffffff0000002",
+				Data:  "0x6d3a3f8d",
+				GasPrice: big.NewInt(40000000000),
+			}
+			res, err := rpc.UseSendTransaction(unregisterMinnerTX)
+			if err != nil {
+				fmt.Println("Send Miner unregister transaction error", err)
+				return
+			}
+			fmt.Println("Send  Miner unregister transaction hash:", res)
+			time.Sleep(2 * time.Second)
+		}
 	}
 
 	// miner register
@@ -105,7 +131,10 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 		GasPrice: big.NewInt(40000000000),
 	}
 	res, err := rpc.UseSendTransaction(registerMinnerTX)
-	fmt.Println("Send  Miner register transaction hash:", err, res)
+	if err != nil {
+		fmt.Println("Send Miner register transaction error", err)
+	}
+	fmt.Println("Send  Miner register transaction hash:", res)
 	time.Sleep(2 * time.Second)
 
 	//miner start
@@ -114,8 +143,12 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 		fmt.Println("Miner start failed, please open your rpcapi 'miner'", err)
 		return
 	}
-	fmt.Println("Miner start: true")
 
+	mining, err := rpc.UseMining()
+	if err != nil {
+		fmt.Println("useMing error", err)
+	}
+	fmt.Println("Miner start: ", mining)
 }
 
 func reader() (string, error) {

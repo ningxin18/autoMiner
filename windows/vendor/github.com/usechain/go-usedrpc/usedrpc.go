@@ -202,6 +202,14 @@ func (rpc *UseRPC) UseIsMiner(address, block string) (bool, error) {
 	return response == 1, err
 }
 
+// UseIsPunishedMiner returns true if the coinbase is a punished miner
+func (rpc *UseRPC) UseIsPunishedMiner(address, block string) (bool, error) {
+	var response int
+	err := rpc.call("eth_isPunishedMiner", &response, address, block)
+	return response == 1, err
+}
+
+
 func (rpc *UseRPC) UnlockAccount(address, pass string) (bool, error) {
 	var res bool
 	err := rpc.call("personal_unlockAccount", &res, address, pass, 0)
