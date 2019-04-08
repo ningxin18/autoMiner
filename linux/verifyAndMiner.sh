@@ -73,6 +73,7 @@ fi
 echo "You already have user.crt, you can register and miner directly, please continue..."
 
 #autominer include register miner, start miner
+sleep 3
 ./autoMiner
 
 
