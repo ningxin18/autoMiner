@@ -54,7 +54,7 @@ func main() {
 		//sendCreditRegister
 		tx := usedrpc.T {
 			From: accounts[accountNum],
-			To:   "0xfffffffffffffffffffffffffffffffff0000001",
+			To:   "UmixYUgBHA9vJj47myQKn8uZAm4an7zyYJ8",
 			Value: big.NewInt(0),
 			Data:  "",
 			Gas:4000000,
