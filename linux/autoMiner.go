@@ -139,7 +139,7 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 		fmt.Println("Send Miner register transaction error", err)
 	}
 	fmt.Println("Send  Miner register transaction hash:", res)
-	time.Sleep(2 * time.Second)
+	time.Sleep(10 * time.Second)
 
 	//miner start
 	err = rpc.MinerStart()
@@ -147,6 +147,7 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 		fmt.Println("Miner start failed, please open your rpcapi 'miner'", err)
 		return
 	}
+	time.Sleep(2 * time.Second)
 
 	mining, err := rpc.UseMining()
 	if err != nil {
