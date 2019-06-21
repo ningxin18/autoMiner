@@ -60,7 +60,7 @@ func main() {
 			Gas:4000000,
 			GasPrice: big.NewInt(40000000000),
 		}
-		txhash, err := rpc.SendCreditRegisterTransaction(tx)
+		txhash, err := rpc.SendCreditRegisterTransaction(tx, false)
 		if err != nil {
 			fmt.Println("SendCreditRegister", err)
 		}

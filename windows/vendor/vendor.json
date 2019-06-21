@@ -15,10 +15,10 @@
 			"revisionTime": "2019-03-05T03:26:35Z"
 		},
 		{
-			"checksumSHA1": "mR9Z2pPKCWUEdLXMggj1CctNe9c=",
+			"checksumSHA1": "MuG6bi+XyUOwMK5xMEmcnrO6FMM=",
 			"path": "github.com/usechain/go-usedrpc",
-			"revision": "e16115e9fba2b8dd0e891ca49228ed9bd3c9fa5d",
-			"revisionTime": "2019-04-01T11:02:40Z"
+			"revision": "1f4d0683d3ffcb2a11fff866c52c5c395c1f302f",
+			"revisionTime": "2019-05-21T03:38:18Z"
 		}
 	],
 	"rootPath": "github.com/ningxin18/autominer/windows"

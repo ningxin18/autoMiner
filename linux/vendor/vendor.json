@@ -3,22 +3,22 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "qR7D38Zmn9TPUvGn64k+r0+Kq1c=",
+			"checksumSHA1": "LJNU7UbaA/OPHIgZpNPRrRXap74=",
 			"path": "github.com/mattn/go-runewidth",
-			"revision": "703b5e6b11ae25aeb2af9ebb5d5fdf8fa2575211",
-			"revisionTime": "2018-12-18T00:06:49Z"
+			"revision": "a9d6d1e4dc51df2130326793d49971f238839169",
+			"revisionTime": "2018-03-04T23:54:28Z"
 		},
 		{
-			"checksumSHA1": "yECMFHjNDJ5Tb/FKNE6IMupFjIM=",
+			"checksumSHA1": "Mr6HERVe331Mag0kz6Pp48TtuuY=",
 			"path": "github.com/peterh/liner",
 			"revision": "6f820f8f90ce9482ffbd40bb15f9ea9932f4942d",
 			"revisionTime": "2019-03-05T03:26:35Z"
 		},
 		{
-			"checksumSHA1": "oe9cXqid98j3n2P4hBzG+kPrZ7g=",
+			"checksumSHA1": "MuG6bi+XyUOwMK5xMEmcnrO6FMM=",
 			"path": "github.com/usechain/go-usedrpc",
-			"revision": "14038c2b7d21b22b52d2c92131c698f8afc193b7",
-			"revisionTime": "2019-04-08T07:16:43Z"
+			"revision": "1f4d0683d3ffcb2a11fff866c52c5c395c1f302f",
+			"revisionTime": "2019-05-21T03:38:18Z"
 		}
 	],
 	"rootPath": "github.com/ningxin18/autominer/linux"
