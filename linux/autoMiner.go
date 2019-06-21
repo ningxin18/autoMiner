@@ -64,12 +64,16 @@ func main() {
 		if err != nil {
 			fmt.Println("SendCreditRegister", err)
 		}
+
 		fmt.Println("The SendCreditRegister Transaction hash:", txhash)
-		time.Sleep(5*time.Second)
+		fmt.Println("Please wait 30 second for committee to confirm your credit register......")
+		time.Sleep(60 * time.Second)
 
 		queryCert2, err := rpc.GetCertifications(accounts[accountNum])
 		if queryCert2 == "0x1" {
 			miner(accounts,rpc,accountNum)
+		} else {
+			fmt.Println("Your credit register still unconfirmed, this program shudown now, please try again later")
 		}
 	} else if queryCert == "0x1" {
 		miner(accounts,rpc,accountNum)
@@ -78,7 +82,7 @@ func main() {
 
 func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 	n := new(big.Int)
-	n, ok := n.SetString("51000000000000000000", 0)
+	n, ok := n.SetString("50000000000000000000", 0)
 	if ok {
 		//fmt.Println("register miner use value: ", n)
 	} else {
@@ -107,7 +111,7 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 			var unregisterMinnerTX usedrpc.T
 			unregisterMinnerTX = usedrpc.T {
 				From: accounts[accountNum],
-				To:   "0xfffffffffffffffffffffffffffffffff0000002",
+				To:   "UmixYUgBHA9vJj47myQKn8uZAm4anEfrG78",
 				Data:  "0x6d3a3f8d",
 				GasPrice: big.NewInt(40000000000),
 			}
@@ -125,7 +129,7 @@ func miner(accounts []string, rpc *usedrpc.UseRPC, accountNum int) {
 	var registerMinnerTX usedrpc.T
 	registerMinnerTX = usedrpc.T {
 		From: accounts[accountNum],
-		To:   "0xfffffffffffffffffffffffffffffffff0000002",
+		To:   "UmixYUgBHA9vJj47myQKn8uZAm4anEfrG78",
 		Value: n,
 		Data:  "0x819f163a",
 		GasPrice: big.NewInt(40000000000),
